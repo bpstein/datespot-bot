@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2'
+gem 'dotenv-rails'
 gem 'facebook-messenger'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.7'
