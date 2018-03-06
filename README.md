@@ -1,24 +1,32 @@
-# README
+# DateSpot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/bpstein/datespot-bot.svg?branch=master)](https://travis-ci.org/bpstein/datespot-bot)
+[![Coverage Status](https://coveralls.io/repos/github/bpstein/datespot-bot/badge.svg)](https://coveralls.io/github/bpstein/datespot-bot)
+[![Maintainability](https://api.codeclimate.com/v1/badges/423179b4af00d0679ab1/maintainability)](https://codeclimate.com/github/bpstein/datespot-bot/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/423179b4af00d0679ab1/test_coverage)](https://codeclimate.com/github/bpstein/datespot-bot/test_coverage)
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+## Project Description
 
-* System dependencies
+## Features
+### Technologies
+This project utilises the following technologies:
+* Rails 5
+* Facebook Messenger
 
-* Configuration
+## Getting Started
 
-* Database creation
+## Application Structure
 
-* Database initialization
+## Development
 
-* How to run the test suite
+## Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+## Live Deployment
+Project has been [deployed on Heroku](http://.herokuapp.com/)
 
-* Deployment instructions
+## Author
+[Ben Stein](https://github.com/bpstein)
 
-* ...
+## Copyright
