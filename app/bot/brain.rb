@@ -27,11 +27,30 @@ class Brain
   end
 
   def process_message
-    
+    if message.messaging["message"]["quick_reply"].present?
+      @postback = OpenStruct.new({ payload: message.messaging["message"]["quick_reply"]["payload"] })
+      process_postback
+    elsif text.present? 
+      send_text("Hi #{user.first_name}!")
+    else
+      send_text("Sorry, I don't handle attachments :(")
+    end
   end
 
   def process_postback
-    
+    resp = Postback.new(postback.payload, user.id).process
+    resp.each do |r|
+      case r[:type]
+      when "text"
+        send_text(r[:text])
+      when "generic"
+        send_generic_template(r[:elements])
+      when "quick_replies"
+        send_quick_replies(r[:text], r[:replies])
+      else
+        fail "Invalid type"
+      end
+    end
   end
 
   def create_log
@@ -52,6 +71,15 @@ class Brain
   end
 
   private
+
+  def send_text(text)
+    Bot.deliver(
+      recipient: sender, 
+      message: {
+        text: text 
+      }
+    )
+  end
 
   def message_type
     text.present? ? "text" : attachments.first["type"]

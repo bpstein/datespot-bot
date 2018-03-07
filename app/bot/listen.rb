@@ -21,3 +21,14 @@ Bot.on :postback do |postback|
   brain.process_postback
   brain.stop_typing
 end
+
+# Postback for pressing the 'Get Started' button
+Facebook::Messenger::Thread.set(
+  setting_type: "call_to_actions",
+  thread_state: "new_thread",
+  call_to_actions: [
+    {
+    payload: "new_thread"
+    } 
+  ]
+)
