@@ -13,9 +13,10 @@ gem 'facebook-messenger', '~> 0.8.0'
 gem 'faraday'
 gem 'foreman', '~> 0.78.0', require: false
 gem 'jquery-rails', '~> 4.1'
-gem "rails",                            "~> 5.0.0"
-gem 'pg',                               "0.18.4"
-gem "sass-rails",                       "~> 5.0"
+gem 'rails'                  
+gem 'pg',                               '0.18.4'
+gem 'sass-rails',                       '~> 5.0'
+gem 'turbolinks'
 gem "uglifier",                         ">= 1.3.0"                  
 gem "puma",                             "3.4.0"
 gem "omniauth-google-oauth2",           "0.4.1"
