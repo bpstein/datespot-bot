@@ -1,8 +1,8 @@
 require 'facebook/messenger'
 
-include Facebook::Messenger 
+include Facebook::Messenger
 
-Facebook::Messenger::Subscriptions.subscribe 
+Facebook::Messenger::Subscriptions.subscribe
 
 Bot.on :message do |message|
   brain = Brain.new
@@ -28,7 +28,7 @@ Facebook::Messenger::Thread.set(
   thread_state: "new_thread",
   call_to_actions: [
     {
-    payload: "new_thread"
-    } 
+      payload: "new_thread"
+    }
   ]
 )
