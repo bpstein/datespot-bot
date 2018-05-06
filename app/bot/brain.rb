@@ -128,9 +128,14 @@ class Brain
 
     if @user.nil?
       fb_user = Facebook::Client.new.get_user(sender["id"])
+      full_name = if fb_user['name'].present?
+                    fb_user['name'].to_s
+                  else
+                    "#{fb_user['first_name']} #{fb_user['last_name']}"
+                  end
       @user = User.create(
-        fb_id: sender["id"],
-        full_name: fb_user["first_name"] + " " + fb_user["last_name"],
+        fb_id: fb_user["id"],
+        full_name: full_name,
         gender: fb_user["gender"],
         locale: fb_user["locale"],
         timezone: fb_user["timezone"]
