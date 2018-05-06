@@ -47,7 +47,7 @@ module Facebook
     def post(path, body)
       conn = Faraday.new(@base_url)
       conn.post do |req|
-        req.url path 
+        req.url path
         req.headers['Content-Type'] = 'application/json'
         req.body = '#{body}'
       end
