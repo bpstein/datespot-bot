@@ -1,3 +1,4 @@
+require 'rest-client'
 class Postback
 
   attr_reader :payload, :user, :coordinates
@@ -13,7 +14,15 @@ class Postback
     when "new_thread"
       send_onboard
     when 'venues'
-      generic_venue_template
+      venues = get_venues(text)
+      if venues.empty?
+        [{
+          type: "text",
+          text: "Currently, we don't have any venues for this location. Try at some other location."
+        }]
+      else
+        generic_venue_template(venues)
+      end
     when 'get_directions'
       # ToDo - Needs to add directions
       [{
@@ -22,6 +31,8 @@ class Postback
       }]
     end
   end
+
+  private
 
   def send_onboard
     [
@@ -46,25 +57,25 @@ class Postback
   # Generic template for Venues
   # 1. Get all Venues
   # 2. Get Venue according to coordinate
-  def generic_venue_template
+  def generic_venue_template(venues)
     [
       {
         type: 'generic',
-        elements: [
+        elements: venues.map do |venue|
            {
-            title: "Venue#1",
-            image_url: "", # Image URL needs to be added
-            subtitle: "Little description of Venue#1",
+            title: venue["name"],
+            image_url: venue["image_url"],
+            subtitle: venue["short_description"],
             default_action: {
               type: "web_url",
-              url: "http://www.facebook.com",
+              url: venue["website"],
               messenger_extensions: false,
               webview_height_ratio: "tall"
             },
             buttons:[
               {
                 type: "web_url",
-                url: "http://www.facebook.com",
+                url: venue["website"],
                 title: "View Website"
               },{
                 type: "postback",
@@ -73,8 +84,26 @@ class Postback
               }
             ]
           }
-        ]
+        end
       }
     ]
+  end
+
+  def get_venues(location)
+    params = {}
+    if self.respond_to?(:coordinates)
+      coordinates.each do |loc|
+        params[:location][] = loc
+      end
+    else
+      location_txt = text.to_s.match(/venue.?\s*near.?\s+(.+)/i)
+      params[:search] = location_txt if location_txt
+    end
+    begin
+      venues = RestClient.get("#{ENV['DATESPOT_API_HOST']}/datespots", {params: params}).body
+    rescue Exception => e
+      venues = []
+    end
+    JSON.parse(venues)
   end
 end
