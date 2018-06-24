@@ -8,7 +8,7 @@ class Postback
     @user = User.find(user_id)
   end
 
-  def process
+  def process(text)
     case payload
     when "new_thread"
       send_onboard

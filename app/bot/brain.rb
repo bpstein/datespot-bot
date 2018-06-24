@@ -34,7 +34,7 @@ class Brain
       case text
       when /venue/i
         @postback = OpenStruct.new({ payload: 'venues' })
-        process_postback
+        process_postback(text)
       else
         send_text("Hi #{user.first_name}!")
       end
@@ -46,8 +46,8 @@ class Brain
     end
   end
 
-  def process_postback
-    resp = Postback.new(postback, user.id).process
+  def process_postback(text=nil)
+    resp = Postback.new(postback, user.id).process(text)
     resp.each do |r|
       case r[:type]
       when "text"
