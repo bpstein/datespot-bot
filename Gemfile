@@ -24,7 +24,7 @@ gem "omniauth-google-oauth2",           "0.4.1"
 gem "redis",                            "3.3.0"
 gem "sidekiq",                          "4.1.1"
 gem "will_paginate"
-
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
