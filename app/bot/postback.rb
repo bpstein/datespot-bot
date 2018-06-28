@@ -100,7 +100,7 @@ class Postback
     begin
       venues = RestClient.get("#{DATESPOT_API_HOST}", {params: params}).body
     rescue Exception => e
-      venues = []
+      venues = "[]"
     end
     JSON.parse(venues)
   end
