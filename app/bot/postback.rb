@@ -91,16 +91,14 @@ class Postback
 
   def get_venues(location)
     params = {}
-    if self.respond_to?(:coordinates) && !coordinates.nil?
-      coordinates.each do |loc|
-        params[:location][] = loc
-      end
+    if !coordinates.nil? && coordinates[:lat] && coordinates[:long]
+      params[:location] = [coordinates[:lat], coordinates[:long]]
     else
-      location_txt = text.to_s.match(/venue.?\s*near.?\s+(.+)/i)
+      location_txt = location.to_s.match(/venue.?\s*near.?\s+(.+)/i)
       params[:search] = location_txt if location_txt
     end
     begin
-      venues = RestClient.get("#{ENV['DATESPOT_API_HOST']}/datespots", {params: params}).body
+      venues = RestClient.get("#{DATESPOT_API_HOST}", {params: params}).body
     rescue Exception => e
       venues = []
     end
