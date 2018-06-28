@@ -98,7 +98,7 @@ class Postback
       params[:search] = location_txt if location_txt
     end
     begin
-      venues = RestClient.get("#{DATESPOT_API_HOST}/api/datespots", {params: params}).body
+      venues = RestClient.get("#{ENV['DATESPOT_API_HOST']}/api/datespots", {params: params}).body
     rescue Exception => e
       venues = "[]"
     end
