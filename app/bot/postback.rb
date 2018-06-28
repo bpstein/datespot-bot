@@ -91,7 +91,7 @@ class Postback
 
   def get_venues(location)
     params = {}
-    if self.respond_to?(:coordinates)
+    if self.respond_to?(:coordinates) && !coordinates.nil?
       coordinates.each do |loc|
         params[:location][] = loc
       end
