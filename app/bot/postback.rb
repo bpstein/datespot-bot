@@ -38,7 +38,14 @@ class Postback
     [
       {
         type: "text",
-        text: "They there, #{user.first_name}. I'll send you some awesome venues."
+        text: "Oh hey, #{user.first_name} 👋."
+        attachment: {
+          type: "image",
+          payload: {
+            url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif",
+            is_reusable: true 
+          }
+        }
       },
       {
         type: "quick_replies",
