@@ -38,7 +38,7 @@ class Postback
     [
       {
         type: "text",
-        text: "Oh hey, #{user.first_name} 👋."
+        text: "Oh hey, #{user.first_name} 👋.",
         attachment: {
           type: "image",
           payload: {
