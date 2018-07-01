@@ -47,14 +47,7 @@ class Postback
         }
       },
       {
-        text: "Oh hey, #{user.first_name} 👋.",
-        attachment: {
-          type: "image",
-          payload: {
-            url: 
-            is_reusable: true 
-          }
-        }
+        text: "Oh hey, #{user.first_name} 👋."
       },
       {
         type: "quick_replies",
