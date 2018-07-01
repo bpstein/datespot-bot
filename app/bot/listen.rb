@@ -36,6 +36,7 @@ Facebook::Messenger::Thread.set(
 # Persistent menu at bottom of chat window
 Facebook::Messenger::Thread.set(
   setting_type: "call_to_actions",
+  thread_state: "existing_thread",
   persistent_menu: [
     {
       locale: "default",
