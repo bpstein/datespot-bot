@@ -38,10 +38,16 @@ class Postback
     [
       {
         type: "generic",
-        elements: {
-          text: "Oh hey, #{user.first_name} 👋.",
-          image_url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif"
+        attachment: {
+          type: "image",
+          payload: {
+            image_url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif"
+          }
         }
+      },
+      {
+        type: "text",
+        text: "Oh hey, #{user.first_name} 👋."
       },
       {
         type: "quick_replies",
