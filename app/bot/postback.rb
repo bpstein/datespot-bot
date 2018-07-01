@@ -47,7 +47,7 @@ class Postback
         }
       },
       {
-        type: "text", 
+        type: "quick_replies", 
         text: "What are you in the mood for?",
         replies: [
           {
