@@ -41,7 +41,7 @@ class Postback
         attachment: {
           type: "image",
           payload: {
-            url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif",
+            image_url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif",
             is_reusable: true
           }
         }
