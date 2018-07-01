@@ -37,11 +37,18 @@ Facebook::Messenger::Thread.set(
 Facebook::Messenger::Thread.set(
   setting_type: "call_to_actions",
   thread_state: "existing_thread",
-  call_to_actions: [
+  persistent_menu: [
     {
-      type: "web_url",
-      title: "Powered by DateSpot",
-      url: "http://datespot.co"
+      locale: "default",
+      composer_input_disabled: true,
+      call_to_actions:[
+        {
+          type: "web_url",
+          title: "Powered by DateSpot",
+          url: "http://datespot.co",
+          webview_height_ratio: "full"
+        }
+      ]
     }
   ]
 )
