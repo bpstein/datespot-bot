@@ -49,7 +49,7 @@ class Postback
       {
         type: "text", 
         text: "What are you in the mood for?",
-        quick_replies: [
+        replies: [
           {
             content_type: "text",
             title: "Search",
