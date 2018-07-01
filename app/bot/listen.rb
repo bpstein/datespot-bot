@@ -30,11 +30,16 @@ Facebook::Messenger::Thread.set(
     {
       payload: "new_thread"
     }
-  ],
+  ]
+)
+
+# Persistent menu at bottom of chat window
+Facebook::Messenger::Thread.set(
+  setting_type: "call_to_actions",
   thread_state: "existing_thread",
   call_to_actions: [
     {
-      type: "postback",
+      type: "web_url",
       title: "Powered by DateSpot",
       url: "http://datespot.co"
     }
