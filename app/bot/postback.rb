@@ -37,12 +37,21 @@ class Postback
   def send_onboard
     [
       {
-        type: "text",
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [
+            text: "Oh hey, #{user.first_name} 👋.",
+            image_url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif"
+          ]
+        }
+      },
+      {
         text: "Oh hey, #{user.first_name} 👋.",
         attachment: {
           type: "image",
           payload: {
-            url: "https://media.giphy.com/media/3oEduGjJPPpPLGnDO0/giphy.gif",
+            url: 
             is_reusable: true 
           }
         }
