@@ -48,11 +48,11 @@ class Postback
       },
       {
         type: "text",
-        text: "Oh hey, #{user.first_name} 👋."
+        text: "Oh hey, #{user.first_name} 👋"
       },
       {
         type: "quick_replies",
-        text: "Do you want to get venues closest to you ?",
+        text: "Do you want to get venues closest to you?",
         replies: [
           {
             title: "Send us your location.",

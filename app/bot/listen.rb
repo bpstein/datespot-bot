@@ -30,5 +30,13 @@ Facebook::Messenger::Thread.set(
     {
       payload: "new_thread"
     }
+  ],
+  thread_state: "existing_thread",
+  call_to_actions: [
+    {
+      type: "postback",
+      title: "Powered by DateSpot",
+      url: "http://datespot.co"
+    }
   ]
 )
