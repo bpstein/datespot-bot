@@ -37,7 +37,7 @@ class Postback
   def send_onboard
     [
       {
-        type: "generic",
+        type: "image",
         attachment: {
           type: "image",
           payload: {
@@ -45,6 +45,22 @@ class Postback
             is_reusable: true
           }
         }
+      },
+      {
+        type: "text", 
+        text: "What are you in the mood for?",
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "Search",
+            text: "🍸 drinks"
+          },
+          {
+            content_type: "text",
+            title: "Search",
+            text: "☕ coffee"
+          }
+        ]
       },
       {
         type: "text",
