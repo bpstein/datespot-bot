@@ -84,7 +84,6 @@ class Brain
   def send_text(text)
     Bot.deliver(
       recipient: sender,
-      sender_action: "typing_on",
       message: {
         text: text
       }
@@ -94,7 +93,6 @@ class Brain
   def send_quick_replies(text, quick_replies)
     Bot.deliver(
       recipient: sender,
-      sender_action: "typing_on",
       message: {
         text: text,
         quick_replies: quick_replies
@@ -105,7 +103,6 @@ class Brain
   def send_generic_template(elements)
     Bot.deliver(
       recipient: sender,
-      sender_action: "typing_on",
       message: {
         attachment: {
           type: "template",
