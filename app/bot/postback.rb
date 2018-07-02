@@ -46,22 +46,22 @@ class Postback
           }
         }
       },
-      {
-        type: "quick_replies", 
-        text: "What are you in the mood for?",
-        replies: [
-          {
-            content_type: "text",
-            title: "Search",
-            text: "🍸 drinks"
-          },
-          {
-            content_type: "text",
-            title: "Search",
-            text: "☕ coffee"
-          }
-        ]
-      },
+      # {
+      #   type: "quick_replies", 
+      #   text: "What are you in the mood for?",
+      #   replies: [
+      #     {
+      #       content_type: "text",
+      #       title: "Search",
+      #       text: "🍸 drinks"
+      #     },
+      #     {
+      #       content_type: "text",
+      #       title: "Search",
+      #       text: "☕ coffee"
+      #     }
+      #   ]
+      # },
       {
         type: "text",
         text: "Oh hey, #{user.first_name} 👋"
