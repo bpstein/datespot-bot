@@ -52,6 +52,8 @@ class Brain
       case r[:type]
       when "text"
         send_text(r[:text])
+      when "attachment"
+        send_attachment(r[:attachment])
       when "generic"
         send_generic_template(r[:elements])
       when "quick_replies"
@@ -86,6 +88,15 @@ class Brain
       recipient: sender,
       message: {
         text: text
+      }
+    )
+  end
+
+  def send_attachment(attachment)
+    Bot.deliver(
+      recipient: sender,
+      message: {
+        attachment: attachment
       }
     )
   end

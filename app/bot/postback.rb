@@ -37,7 +37,7 @@ class Postback
   def send_onboard
     [
       {
-        type: "generic",
+        type: "attachment",
         attachment: {
           type: "image",
           payload: {
